@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaja Thieme - Product Owner, Project Manager, Business & Data Analyst</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css">
+    <style>
+        /* ===== CSS CUSTOM PROPERTIES (Easy to update!) ===== */
+        :root {
+            --primary-color: #ff9e5e;
+            --primary-light: #ffb485;
+            --text-dark: #2c2c2c;
+            --text-medium: #666;
+            --text-light: #999;
+            --bg-white: #ffffff;
+            --bg-light: #f8f9fa;
+            --bg-card: #ffffff;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+            --border-radius: 12px;
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 48px;
+            --spacing-xl: 80px;
+            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        /* ===== RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            background: var(--bg-white);
+            padding: var(--spacing-md) var(--spacing-lg);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-lg);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-medium);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: 6px;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-color);
+            background: rgba(255, 158, 94, 0.1);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            max-width: 1200px;
+            margin: var(--spacing-xl) auto;
+            padding: 0 var(--spacing-lg);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+
+        .hero-content h2 {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+            font-weight: 600;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-dark);
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-medium);
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.7;
+        }
+
+        .hero-tags {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .tag.experience {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .tag.location {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+
+        .tag.certification {
+            background: #f3e5f5;
+            color: #7b1fa2;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            background: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .cta-button:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            margin-left: auto;
+            display: block;
+        }
+
+        /* ===== SECTION STYLES ===== */
+        .section {
+            max-width: 1200px;
+            margin: var(--spacing-xl) auto;
+            padding: 0 var(--spacing-lg);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-medium);
+        }
+
+        /* ===== COMPETENCIES GRID ===== */
+        .competencies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .competency-card {
+            background: var(--bg-card);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .competency-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .competency-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 158, 94, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .competency-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-dark);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-xs);
+        }
+
+        .skill-tag {
+            padding: 6px 14px;
+            background: var(--bg-light);
+            border-radius: 16px;
+            font-size: 0.85rem;
+            color: var(--text-medium);
+            font-weight: 500;
+        }
+
+        /* ===== EXPERIENCE TIMELINE ===== */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--primary-light));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: var(--spacing-xl);
+            padding: var(--spacing-lg);
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -47px;
+            top: 30px;
+            width: 14px;
+            height: 14px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: 3px solid var(--bg-light);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-sm);
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+
+        .timeline-header h3 {
+            font-size: 1.4rem;
+            color: var(--text-dark);
+        }
+
+        .timeline-header .company-icon {
+            font-size: 1.2rem;
+            margin-right: var(--spacing-xs);
+        }
+
+        .timeline-meta {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            font-size: 0.9rem;
+            color: var(--text-medium);
+        }
+
+        .timeline-description {
+            color: var(--text-medium);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .project-list h4 {
+            font-size: 1rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-dark);
+        }
+
+        .project-list ul {
+            list-style: none;
+        }
+
+        .project-list li {
+            padding: var(--spacing-sm) 0;
+            padding-left: var(--spacing-md);
+            position: relative;
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+
+        .project-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        .project-list strong {
+            color: var(--text-dark);
+        }
+
+        /* ===== EDUCATION & CERTIFICATIONS ===== */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .education-card {
+            background: var(--bg-card);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .education-icon {
+            width: 48px;
+            height: 48px;
+            background: #e3f2fd;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .education-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .education-subtitle {
+            color: var(--text-medium);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .education-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .education-card ul {
+            list-style: none;
+        }
+
+        .education-card li {
+            padding: 6px 0 6px var(--spacing-md);
+            position: relative;
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+
+        .education-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        /* ===== CERTIFICATIONS ===== */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .cert-card {
+            background: var(--bg-card);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .cert-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-xs);
+            color: var(--text-dark);
+        }
+
+        .cert-issuer {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .cert-status {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        /* ===== LANGUAGES ===== */
+        .language-list {
+            display: flex;
+            gap: var(--spacing-lg);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .language-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .language-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .language-level {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--bg-light);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            text-align: center;
+            background: var(--bg-card);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 158, 94, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto var(--spacing-md);
+        }
+
+        .contact h2 {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .contact p {
+            color: var(--text-medium);
+            margin-bottom: var(--spacing-lg);
+            font-size: 1.1rem;
+        }
+
+        .linkedin-button {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-md) var(--spacing-lg);
+            background: #0077b5;
+            color: white;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .linkedin-button:hover {
+            background: #006399;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: var(--spacing-lg);
+            color: var(--text-light);
+            background: var(--bg-white);
+            margin-top: var(--spacing-xl);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-image img {
+                margin: 0 auto;
+            }
+
+            .nav-links {
+                gap: var(--spacing-sm);
+                font-size: 0.9rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .competencies-grid,
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                padding-left: 30px;
+            }
+
+            .timeline-item::before {
+                left: -37px;
+            }
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .hidden {
+            display: none;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Kaja Thieme</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>Product Owner · Project Manager · Business & Data Analyst</h2>
+            <h1>Kaja Thieme</h1>
+            <p>Bridging business and technology to deliver production-ready solutions. Leveraging AI to transform product delivery and workflow automation.</p>
+            
+            <div class="hero-tags">
+                <span class="tag experience">15+ years experience</span>
+                <span class="tag location">Zürich, Switzerland</span>
+                <span class="tag certification">AI First</span>
+            </div>
+
+            <a href="#contact" class="cta-button">Get in touch →</a>
+        </div>
+
+        <div class="hero-image">
+            <img src="DK7D0921_LinkedIn2.PNG" alt="Kaja Thieme">
+        </div>
+    </section>
+
+    <!-- COMPETENCIES SECTION -->
+    <section class="section" id="skills">
+        <div class="section-header">
+            <h2>Competencies</h2>
+            <p>A blend of product ownership, project management, business & data expertise, and AI capabilities</p>
+        </div>
+
+        <div class="competencies-grid">
+            <div class="competency-card">
+                <div class="competency-icon">💼</div>
+                <h3>Product Management</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Product Ownership</span>
+                    <span class="skill-tag">Roadmap Planning</span>
+                    <span class="skill-tag">Stakeholder Management</span>
+                    <span class="skill-tag">End-to-End Delivery</span>
+                    <span class="skill-tag">Outcome Orientation</span>
+                </div>
+            </div>
+
+            <div class="competency-card">
+                <div class="competency-icon">📊</div>
+                <h3>Data & Analytics</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Data Modeling</span>
+                    <span class="skill-tag">Master Data Management</span>
+                    <span class="skill-tag">Data Governance</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Databricks</span>
+                </div>
+            </div>
+
+            <div class="competency-card">
+                <div class="competency-icon">🤖</div>
+                <h3>AI & Automation</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Generative AI</span>
+                    <span class="skill-tag">Agentic Workflows</span>
+                    <span class="skill-tag">Prompt Engineering</span>
+                    <span class="skill-tag">Custom GPTs</span>
+                    <span class="skill-tag">n8n</span>
+                    <span class="skill-tag">Vibe Coding</span>
+                </div>
+            </div>
+
+            <div class="competency-card">
+                <div class="competency-icon">🎯</div>
+                <h3>Project Management</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">PMP Certified</span>
+                    <span class="skill-tag">Agile/Scrum</span>
+                    <span class="skill-tag">Cross-functional Teams</span>
+                </div>
+            </div>
+
+            <div class="competency-card">
+                <div class="competency-icon">📈</div>
+                <h3>Business Analysis</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Requirements Engineering</span>
+                    <span class="skill-tag">Process Optimization</span>
+                    <span class="skill-tag">Gap Analysis</span>
+                    <span class="skill-tag">Testing</span>
+                </div>
+            </div>
+
+            <div class="competency-card">
+                <div class="competency-icon">👥</div>
+                <h3>Leadership</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Team Leadership</span>
+                    <span class="skill-tag">Coaching & Mentoring</span>
+                    <span class="skill-tag">Change Management</span>
+                    <span class="skill-tag">Communication</span>
+                    <span class="skill-tag">Collaboration</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section class="section" id="experience">
+        <div class="section-header">
+            <h2>Experience</h2>
+            <p>Over 15 years delivering production-ready solutions in complex, regulated environments</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <h3><span class="company-icon">🏢</span>Ellix AG</h3>
+                </div>
+                <div class="timeline-meta">
+                    <span>📍 Zürich, Switzerland</span>
+                    <span>📅 03/2017 - 12/2025</span>
+                    <span>💼 Principal</span>
+                </div>
+                <p class="timeline-description">
+                    Boutique Swiss consulting firm specializing in service-based management.
+                </p>
+                <div class="project-list">
+                    <h4>Key Projects:</h4>
+                    <ul>
+                        <li>
+                            <strong>Swiss Re | Product Owner (5 years):</strong> Owned master & market data products enabling IFRS 17/9 reporting in SAP FPSL. Delivered production integrations across 5 systems. Led a DevOps team of 10 with end-to-end integration responsibility (from source systems to reporting). Established data governance across business & IT. Defined and tested requirements with stakeholders. Coached business stakeholders on master data management solutions.
+                        </li>
+                        <li>
+                            <strong>Swiss Re | Business & Data Analyst (1 year):</strong> Standardized investment data into a canonical data model on Databricks (Swiss Re's central finance data platform), including defining and testing specifications.
+                        </li>
+                        <li>
+                            <strong>Swiss Re | Agile Coach & Scrum Master (1 year):</strong> Established Agile methods and Scrum in Swiss Re's Finance transformation program. Acted as Scrum Master for 3 agile teams, increasing efficiency and delivery speed.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <h3><span class="company-icon">🏢</span>Detecon (Schweiz) AG</h3>
+                </div>
+                <div class="timeline-meta">
+                    <span>📍 Zürich, Switzerland</span>
+                    <span>📅 08/2008 - 02/2017</span>
+                    <span>💼 Senior Consultant</span>
+                </div>
+                <p class="timeline-description">
+                    Management and technology consultancy within Deutsche Telekom Group.<br>
+                    💎 Delivery Award in 2015 for outstanding client delivery.
+                </p>
+                <div class="project-list">
+                    <h4>Key Projects:</h4>
+                    <ul>
+                        <li>
+                            <strong>T-Systems | System Project Manager / Product Owner (3 years):</strong> Delivered an IFRS 15 revenue recognition solution, including scope, data model, prototyping, testing, and go-live.
+                        </li>
+                        <li>
+                            <strong>T-Systems | System Project Manager (1 year):</strong> Led the unification of data models and processes for a specific IT system during a global ERP migration.
+                        </li>
+                        <li>
+                            <strong>Deutsche Telekom | Agile Coach & Scrum Master (1 year):</strong> Transitioned a big-data program from waterfall to Scrum. Coached the Product Owner and development teams, adapting the Scrum framework to fit client-specific needs.
+                        </li>
+                        <li>
+                            <strong>T-Systems | Business & Data Analyst (2 years):</strong> Led requirements and test management for an enterprise data warehouse. Executed system and acceptance testing, and defined incident & change management processes.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROFESSIONAL DEVELOPMENT -->
+    <section class="section">
+        <div class="section-header">
+            <h2>Professional Development</h2>
+            <!-- <p>Academic foundation and professional certifications</p> -->
+        </div>
+
+        <div class="education-card" style="max-width: 800px; margin: 0 auto var(--spacing-lg);">
+            <div class="education-icon" style="background: rgba(255, 158, 94, 0.1);">🤖</div>
+            <h3>AI & Automation</h3>
+            <p class="education-date">07/2025 - 09/2025</p>
+            <p class="timeline-description">
+                Self-initiated sabbatical to learn and apply AI to product delivery and workflow automation.
+            </p>
+            <div class="skill-tags" style="margin-top: var(--spacing-md);">
+                <span class="skill-tag">Custom GPTs</span>
+                <span class="skill-tag">Agentic Workflows (esp. with n8n)</span>
+                <span class="skill-tag">Vibe Coding</span>
+                <span class="skill-tag">Prompt & Context Engineering</span>
+                <span class="skill-tag">AI Product Management</span>
+                <span class="skill-tag">AI Basics</span>
+                <span class="skill-tag">AI Application & Model Landscape</span>
+                <span class="skill-tag">10+ Coursera Specializations</span>
+                <span class="skill-tag">20+ DataCamp Courses</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION & CERTIFICATIONS -->
+    <section class="section" id="education">
+        <div class="education-grid">
+            <div class="education-card">
+                <div class="education-icon">🎓</div>
+                <h3>Education</h3>
+                <p class="education-subtitle">Master's Degree in Business Information Technology</p>
+                <p class="education-subtitle">Dresden University of Technology, Germany</p>
+                <p class="education-date">2001 - 2008</p>
+                <ul>
+                    <li>Master's Thesis: Requirements Specification for the Selection of a Scheduling System (Case: Infineon Technologies)</li>
+                    <li>Overall degree: 1.3 (very good), graduated in top 10%</li>
+                </ul>
+            </div>
+
+            <div class="education-card">
+                <div class="education-icon">🌐</div>
+                <h3>Languages</h3>
+                <div style="margin-top: var(--spacing-md);">
+                    <div class="language-item" style="text-align: left; margin-bottom: var(--spacing-md);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span class="language-name"><span class="fi fi-de" style="margin-right:.35em;"></span>German</span>
+                            <span class="language-level">Native</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="language-item" style="text-align: left; margin-bottom: var(--spacing-md);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span class="language-name"><span class="fi fi-us" style="margin-right:.35em;"></span>English</span>
+                            <span class="language-level">Proficient</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 97%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="language-item" style="text-align: left;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span class="language-name"><span class="fi fi-es" style="margin-right:.35em;"></span>Spanish</span>
+                            <span class="language-level">Beginner</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 30%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: var(--spacing-xl);">
+            <h3 style="text-align: center; margin-bottom: var(--spacing-lg); font-size: 1.8rem;">Professional Certificate Selection</h3>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <h4>PMP (Project Management Professional)</h4>
+                    <p class="cert-issuer">PMI • 2013</p>
+                    <p class="cert-status">Active to 2028</p>
+                </div>
+
+                <div class="cert-card">
+                    <h4>CPRE (Cert. Prof. for Requirements Engineering, Foundation)</h4>
+                    <p class="cert-issuer">IREB • 2013</p>
+                    <p class="cert-status">Certified</p>
+                </div>
+
+                <div class="cert-card">
+                    <h4>CTFL (Certified Tester, Foundation)</h4>
+                    <p class="cert-issuer">ISTQB • 2012</p>
+                    <p class="cert-status">Certified</p>
+                </div>
+
+                <div class="cert-card">
+                    <h4>CSM (Certified Scrum Master)</h4>
+                    <p class="cert-issuer">Scrum Alliance • 2016</p>
+                    <p class="cert-status">Previously Certified</p>
+                </div>
+
+                <div class="cert-card">
+                    <h4>ITIL v3 Foundation</h4>
+                    <p class="cert-issuer">APMG • 2009</p>
+                    <p class="cert-status">Certified</p>
+                </div>
+
+                <div class="cert-card">
+                    <h4>COBIT 5 Foundation</h4>
+                    <p class="cert-issuer">APMG • 2013</p>
+                    <p class="cert-status">Certified</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section" id="contact">
+        <div class="contact">
+            <div class="contact-icon">✉️</div>
+            <h2>Let's Connect</h2>
+            <p>Interested in discussing products, data solutions, or AI topics? <br>
+                I'm always open to connecting with fellow professionals.</p>
+            <a href="https://linkedin.com/in/kajathieme" target="_blank" class="linkedin-button">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+                Connect on LinkedIn →
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 Kaja Thieme. Built with passion for clean, modern design.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll and active nav highlighting
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+
+                // Update active state
+                document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards for animation
+        document.querySelectorAll('.competency-card, .timeline-item, .education-card, .cert-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Update active nav on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.section, .hero');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
